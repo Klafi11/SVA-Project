@@ -1,0 +1,30 @@
+# Large data (stored in GCS)
+data/
+*.zip
+*.tar
+*.csv
+
+# Common junk
+node_modules/
+.env
+.DS_Store
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+*.egg-info/

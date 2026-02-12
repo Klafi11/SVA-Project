@@ -1,0 +1,24 @@
+[project]
+name = "highest_e10_price_2023"
+version = "0.1.0"
+description = "Spark job to find highest E10 price in 2023"
+readme = "README.md"
+requires-python = ">=3.12, <3.13"
+dependencies = ["pyspark>=3.5,<3.6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0.2", "chispa>=0.11.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
