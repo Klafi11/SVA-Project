@@ -45,7 +45,7 @@ def main() -> None:
     if not username or not password:
         raise RuntimeError("USERNAME/PASSWORD env vars are not set")
 
-    d = date.today() - timedelta(days=2)  # vorgestern timedelta (days=2)
+    d = date.today() - timedelta(days=1)  # vorgestern timedelta (days=2)
 
     url_station = (
         f"https://data.tankerkoenig.de/"

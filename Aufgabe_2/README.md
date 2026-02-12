@@ -25,7 +25,7 @@ This project computes the highest E10 fuel price in 2023 and returns all records
 2. gcloud and gsutil installed
 3. OpenTofu (tofu) installed
 4. uv installed – https://github.com/astral-sh/uv
-5. Python 3.10+
+5. Python 3.12+
 6. Authenticate and set the project
 
 ## Authentication & Project Setup
@@ -53,7 +53,7 @@ This creates:
 Install the package in editable mode:
 
 ```bash
-uv pip install -e .[dev]
+uv pip install -e ".[dev]"
 ```
 
 Run tests:
@@ -145,11 +145,12 @@ gcloud dataproc batches submit pyspark \
 ```
 ### Job Arguments
 
-- --input-path	GCS glob path to input CSV files
-- --output-path	GCS output directory
-- --partition-by-month	Optional flag to partition output by year_month action="store_true" flags default to False.
-- --shuffle-partitions, default=200 -> Number of shuffle partitions
-- --disable-aqe Disable Adaptive Query Execution (AQE)
+- --input-path = GCS glob path to input CSV files
+- --output-path	= GCS output directory
+- --partition-by-month = Optional flag to partition output by year_month action="store_true" flags default to False.
+- --threshold-max-e10 = Setting the treshold for max_e10 Price default 3€
+- --top-n = Select the top N highest e10 Prices
+- --disable-aqe = Disable Adaptive Query Execution (AQE)
    
 ## Output Format
 
@@ -191,7 +192,7 @@ tofu destroy
 ### Notes & Best Practices
 
 - Always rebuild and re-upload the ZIP after code changes
-- tofu output lets you see the build up Plan
+- tofu output lets you see the build up Plan and commands
 - Dataproc Serverless logs and metadata are stored under Dataproc-managed prefixes in the staging bucket
 - Ensure proper IAM permissions for the service account to access GCS buckets
 - Monitor job execution via Google Cloud Console → Dataproc → Batches
