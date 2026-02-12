@@ -147,7 +147,7 @@ gcloud dataproc batches submit pyspark \
 
 - --input-path = GCS glob path to input CSV files
 - --output-path	= GCS output directory
-- --partition-by-month = Optional flag to partition output by year_month action="store_true" flags default to False.
+- --shuffle-partitions = Change shuffle Partition default 200
 - --threshold-max-e10 = Setting the treshold for max_e10 Price default 3€
 - --top-n = Select the top N highest e10 Prices
 - --disable-aqe = Disable Adaptive Query Execution (AQE)
